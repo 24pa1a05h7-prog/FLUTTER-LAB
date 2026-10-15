@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+// StatelessWidget is used because this screen has no changing data.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Layouts'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              const Text(
+                'Row Widget',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+
+              // Row places the three icons horizontally.
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Icon(Icons.home, size: 30),
+                  Icon(Icons.star, size: 30),
+                  Icon(Icons.person, size: 30),
+                ],
+              ),
+
+              const SizedBox(height: 40),
+              const Text(
+                'Stack Widget',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+
+              // Stack places widgets on top of one another.
+              Stack(
+                alignment: Alignment.center,
+                children: const [
+                  SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: ColoredBox(color: Colors.blue),
+                  ),
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ColoredBox(color: Colors.red),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
